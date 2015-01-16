@@ -1,4 +1,4 @@
-delalain
-========
+magfest
+=======
 
-Atelier Delalain website
+MAGFest Schedule formatted sanely
