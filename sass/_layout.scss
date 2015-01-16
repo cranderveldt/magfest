@@ -1,0 +1,60 @@
+body {
+  background: #EEE;
+  font-family: $sans;
+}
+#container {
+  max-width: 700px;
+  margin: auto;
+  background: #FFF;
+}
+h2 {
+  font-size: 20px;
+  margin: 0 0 20px;
+  font-weight: 700;
+}
+.location {
+  color: #AAA;
+  font-size: 12;
+}
+.events {
+  padding: 20px;
+}
+.event {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ececec;
+}
+.filtering {
+  .filter {
+    margin: 0;
+    width: 130px;
+    float: left;
+    position: relative;
+    text-align: center;
+    @include above-width(650px) {
+      width: 20%;
+    }
+  }
+  span {
+    display: block;
+    background: #cacaca;
+    color: #9f9f9f;
+    padding: 5px 0;
+    i {
+      margin-right: 5px;
+    }
+  }
+  input {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 4;
+    cursor: pointer;
+    &:checked + span {
+      background: #ccf0c9;
+      color: #577355;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en" ng-app="magfest">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>MAGFest Scheudle</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular.min.js"></script>
+  <script src="/js/script.js"></script>
+</head>
+<body class="home-page" ng-controller="Main">
+  <div id="container">
+    <nav class="filtering clearfix">
+      <div class="filter" ng-repeat="cat in categories">
+        <input type="checkbox" ng-model="cat.visible"> <span><i ng-class="getCatIcon(cat.visible)"></i><b ng-bind="cat.name"></b></span>
+      </div>
+    </nav>
+    <div class="events">
+      <div class="event" ng-repeat="event in events" ng-show="shouldShowEvent(event)">
+        <h2 ng-bind="event.title"></h2>
+        <p class="location" ng-bind="event.room"></p>
+        <p class="start"><span ng-bind="formatTime(event.start_time, 'ddd, h:mm a')"></span> - <span ng-bind="formatTime(event.end_time, 'h:mm a')"></span> (<span ng-bind="durationInHours(event.duration)"></span>)</p>
+        <p class="description" ng-bind-html="displayAsHTML(event.desc)" ng-hide="event.desc === ''"></p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
